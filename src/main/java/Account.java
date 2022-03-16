@@ -1,3 +1,5 @@
+import io.qameta.allure.Step;
+
 public class Account {
 
     private final String name;
@@ -6,6 +8,7 @@ public class Account {
         this.name = name;
     }
 
+    @Step("Проверка строки на возможность эмбосссирования")
     public boolean checkNameToEmboss() {
         /*
              Этот метод должен проверять, что сохранённая через конструктор строка соответствует требованиям.
@@ -13,14 +16,14 @@ public class Account {
          */
         if (name.length() >= 3 &&
                 name.length() <= 19 &&
-                   name.endsWith(" ") == false &&
-                       name.startsWith(" ") == false &&
-                           checkAvailabilitySpace()){
+                name.endsWith(" ") == false &&
+                name.startsWith(" ") == false &&
+                checkAvailabilitySpace()) {
             return true;
         } else return false;
     }
 
-    public boolean checkAvailabilitySpace () {
+    public boolean checkAvailabilitySpace() {
         char[] chArray = name.toCharArray();
         int spaceCount = 0;
         for (int i = 0; i < chArray.length; i++) {
@@ -29,7 +32,7 @@ public class Account {
             }
         }
 
-        if (spaceCount <= 1 && spaceCount >= 1){
+        if (spaceCount <= 1 && spaceCount >= 1) {
             return true;
         } else return false;
     }
