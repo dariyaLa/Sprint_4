@@ -10,11 +10,13 @@ public class Account {
 
     @Step("Проверка строки на возможность эмбосссирования")
     public boolean checkNameToEmboss() {
+
         /*
              Этот метод должен проверять, что сохранённая через конструктор строка соответствует требованиям.
              Если строка удовлетворяет условиям, метод возвращает true, иначе — false.
          */
-        if (name.length() >= 3 &&
+        if (name != null &&
+                name.length() >= 3 &&
                 name.length() <= 19 &&
                 name.endsWith(" ") == false &&
                 name.startsWith(" ") == false &&
